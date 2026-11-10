@@ -86,3 +86,14 @@ html{scroll-behavior:auto!important}
 .salon-reveal{opacity:1!important;transform:none!important}
 .hero-image{transform:none!important}
 }
+
+
+/* Mobile appointment modal must sit above the sticky booking CTA. */
+.mobile-book-bar[hidden]{display:none!important}
+.overlay{z-index:200;overflow-y:auto;overscroll-behavior:contain;align-items:safe center}
+.overlay .dialog{max-height:calc(100dvh - 32px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+@media(max-width:700px){
+.overlay{padding:12px;align-items:safe center}
+.overlay .dialog{max-height:calc(100dvh - 24px);padding:24px 20px max(30px,env(safe-area-inset-bottom))}
+.overlay .dialog .full{position:relative;margin-bottom:8px}
+}
