@@ -57,3 +57,19 @@ CREATE TABLE IF NOT EXISTS memberships (
  active BOOLEAN NOT NULL DEFAULT true
 );
 -- Orders, payment intents, subscriptions and confirmed slot locking are intentionally not implemented yet.
+
+-- Premium salon CMS additions (safe to re-run).
+ALTER TABLE site_settings ADD COLUMN IF NOT EXISTS content JSONB NOT NULL DEFAULT '{}'::jsonb;
+ALTER TABLE site_settings ADD COLUMN IF NOT EXISTS hero_image_url TEXT;
+ALTER TABLE staff ADD COLUMN IF NOT EXISTS image_url TEXT;
+ALTER TABLE staff ADD COLUMN IF NOT EXISTS specialty TEXT NOT NULL DEFAULT '';
+ALTER TABLE staff ADD COLUMN IF NOT EXISTS sort_order INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE services ADD COLUMN IF NOT EXISTS details TEXT NOT NULL DEFAULT '';
+ALTER TABLE services ADD COLUMN IF NOT EXISTS preparation TEXT NOT NULL DEFAULT '';
+ALTER TABLE services ADD COLUMN IF NOT EXISTS aftercare TEXT NOT NULL DEFAULT '';
+CREATE TABLE IF NOT EXISTS gallery_items (
+ id UUID PRIMARY KEY DEFAULT gen_random_uuid(), title TEXT NOT NULL,
+ category TEXT NOT NULL DEFAULT 'Our Work', image_url TEXT NOT NULL,
+ description TEXT NOT NULL DEFAULT '', sort_order INTEGER NOT NULL DEFAULT 0,
+ active BOOLEAN NOT NULL DEFAULT true, created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
