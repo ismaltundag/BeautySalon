@@ -49,7 +49,7 @@ export async function POST(req: Request) {
     if(settings[0]){
       const s=settings[0]
       await payload.updateGlobal({slug:'site-settings',overrideAccess:true,data:{
-        brand:s.brand,headline:s.headline,tagline:s.tagline,announcement:s.announcement,
+        brand:s.brand,accent:s.accent,headline:s.headline,tagline:s.tagline,announcement:s.announcement,
         legacyAbout:s.about,legacyHeroImageUrl:s.hero_image_url,
         membershipTitle:s.membership_title,legacyContent:s.content,
       } as any})
