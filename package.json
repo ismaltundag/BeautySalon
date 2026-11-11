@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NODE_ENV=development node --import tsx scripts/init-payload-db.ts && next build",
     "start": "next start"
   },
   "dependencies": {
@@ -26,6 +26,7 @@
     "typescript": "^5.7.0",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0"
+    "@types/react-dom": "^19.0.0",
+    "tsx": "^4.22.0"
   }
 }
