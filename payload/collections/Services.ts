@@ -3,7 +3,7 @@ export const Services: CollectionConfig = {
  slug: 'salon-services', labels: { singular: 'Service', plural: 'Services & Pricing' },
  admin: { group: 'Salon Content', useAsTitle: 'name', defaultColumns: ['name','category','price','active'] },
  access:{read:()=>true,create:({req})=>Boolean(req.user?.collection==='users'),update:({req})=>Boolean(req.user?.collection==='users'),delete:({req})=>Boolean(req.user?.collection==='users')},
- fields: [
+ fields: [{name:'legacyId',type:'text',unique:true,admin:{readOnly:true}},{name:'legacyImageUrl',type:'text'},
   { name:'name', type:'text', required:true },
   { name:'category', type:'text' },
   { name:'description', type:'textarea' },
