@@ -18,7 +18,7 @@ export default buildConfig({
   globals: [SiteSettings],
   editor: lexicalEditor(),
   plugins: [vercelBlobStorage({collections:{media:true},token:process.env.BLOB_READ_WRITE_TOKEN})],
-  db: postgresAdapter({ pool: { connectionString: process.env.DATABASE_URL || '' } }),
+  db: postgresAdapter({ pool: { connectionString: process.env.DATABASE_URL || '' }, push: true }),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: { outputFile: './payload-types.ts' },
 })
