@@ -2,7 +2,7 @@ import type { CollectionConfig } from 'payload'
 export const Services: CollectionConfig = {
  slug: 'salon-services', labels: { singular: 'Service', plural: 'Services & Pricing' },
  admin: { group: 'Salon Content', useAsTitle: 'name', defaultColumns: ['name','category','price','active'] },
- access: { read: () => true },
+ access:{read:()=>true,create:({req})=>Boolean(req.user?.collection==='users'),update:({req})=>Boolean(req.user?.collection==='users'),delete:({req})=>Boolean(req.user?.collection==='users')},
  fields: [
   { name:'name', type:'text', required:true },
   { name:'category', type:'text' },
