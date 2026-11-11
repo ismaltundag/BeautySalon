@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "NODE_ENV=development node --import tsx scripts/init-payload-db.ts && next build",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "node scripts/patch-drizzle-kit.cjs"
   },
   "dependencies": {
     "next": "16.3.0",
