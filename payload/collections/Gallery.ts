@@ -3,7 +3,7 @@ export const Gallery: CollectionConfig = {
  slug:'salon-gallery',labels:{singular:'Gallery Photo',plural:'Gallery'},
  admin:{group:'Salon Content',useAsTitle:'title'},
  access:{read:()=>true,create:({req})=>Boolean(req.user?.collection==='users'),update:({req})=>Boolean(req.user?.collection==='users'),delete:({req})=>Boolean(req.user?.collection==='users')},
- fields:[{name:'title',type:'text',required:true},{name:'category',type:'text'},
+ fields:[{name:'legacyId',type:'text',unique:true,admin:{readOnly:true}},{name:'legacyImageUrl',type:'text'},{name:'title',type:'text',required:true},{name:'category',type:'text'},
  {name:'description',type:'textarea'},{name:'image',type:'upload',relationTo:'media',required:true},
  {name:'sortOrder',type:'number',defaultValue:0},{name:'active',type:'checkbox',defaultValue:true}],
 }
