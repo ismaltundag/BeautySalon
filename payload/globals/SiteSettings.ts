@@ -2,7 +2,7 @@ import type { GlobalConfig } from 'payload'
 export const SiteSettings: GlobalConfig = {
  slug:'site-settings',label:'Website Content',admin:{group:'Settings'},access:{read:()=>true,update:({req})=>Boolean(req.user?.collection==='users')},
  fields:[{name:'legacyHeroImageUrl',type:'text'},{name:'legacyContent',type:'json'},{name:'legacyAbout',type:'textarea'},
- {name:'brand',type:'text'},{name:'headline',type:'text'},
+ {name:'brand',type:'text'},{name:'accent',type:'text',defaultValue:'#394438'},{name:'headline',type:'text'},
  {name:'tagline',type:'textarea'},{name:'announcement',type:'text'},
  {name:'about',type:'richText'},{name:'heroImage',type:'upload',relationTo:'media'},
  {name:'membershipTitle',type:'text'},{name:'membershipDescription',type:'textarea'},
