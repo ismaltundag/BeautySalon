@@ -3,7 +3,7 @@ export const Products: CollectionConfig = {
  slug:'salon-products', labels:{singular:'Product',plural:'Products'},
  admin:{group:'Salon Content',useAsTitle:'name'},
  access:{read:()=>true,create:({req})=>Boolean(req.user?.collection==='users'),update:({req})=>Boolean(req.user?.collection==='users'),delete:({req})=>Boolean(req.user?.collection==='users')},
- fields:[
+ fields:[{name:'legacyId',type:'text',unique:true,admin:{readOnly:true}},{name:'legacyImageUrl',type:'text'},
  {name:'name',type:'text',required:true},{name:'category',type:'text'},
  {name:'description',type:'textarea'},{name:'price',type:'number',min:0},
  {name:'inventory',type:'number',min:0},{name:'image',type:'upload',relationTo:'media'},
