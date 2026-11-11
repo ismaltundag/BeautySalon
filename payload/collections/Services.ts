@@ -7,7 +7,7 @@ export const Services: CollectionConfig = {
   { name:'name', type:'text', required:true },
   { name:'category', type:'text' },
   { name:'description', type:'textarea' },
-  { name:'details', type:'richText' },
+  { name:'details', type:'richText' },{name:'legacyDetails',type:'textarea'},
   { name:'preparation', type:'textarea' },
   { name:'aftercare', type:'textarea' },
   { name:'price', type:'number', min:0 },
