@@ -19,7 +19,8 @@
     "@payloadcms/richtext-lexical": "3.88.0",
     "payload": "3.88.0",
     "graphql": "^16.8.2",
-    "sharp": "0.34.2"
+    "sharp": "0.34.2",
+    "@payloadcms/storage-vercel-blob": "3.88.0"
   },
   "devDependencies": {
     "typescript": "^5.7.0",
