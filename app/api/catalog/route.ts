@@ -22,7 +22,7 @@ export async function GET(){try{
      membership_title:settings.membershipTitle,content:(settings as any).legacyContent||{},
      hero_image_url:mediaUrl(settings.heroImage)||(settings as any).legacyHeroImageUrl||null},
     services:services.docs.map((x:any)=>({id:x.legacyId||String(x.id),name:x.name,category:x.category,
-     description:x.description,details:x.details,preparation:x.preparation,aftercare:x.aftercare,
+     description:x.description,details:x.legacyDetails||'',preparation:x.preparation,aftercare:x.aftercare,
      price_cents:Math.round((x.price||0)*100),duration_minutes:x.durationMinutes||0,
      image_url:mediaUrl(x.image)||x.legacyImageUrl})),
     products:products.docs.map((x:any)=>({id:x.legacyId||String(x.id),name:x.name,category:x.category,
