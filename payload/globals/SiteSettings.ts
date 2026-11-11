@@ -1,6 +1,6 @@
 import type { GlobalConfig } from 'payload'
 export const SiteSettings: GlobalConfig = {
- slug:'site-settings',label:'Website Content',admin:{group:'Settings'},
+ slug:'site-settings',label:'Website Content',admin:{group:'Settings'},access:{read:()=>true,update:({req})=>Boolean(req.user?.collection==='users')},
  fields:[
  {name:'brand',type:'text'},{name:'headline',type:'text'},
  {name:'tagline',type:'textarea'},{name:'announcement',type:'text'},
