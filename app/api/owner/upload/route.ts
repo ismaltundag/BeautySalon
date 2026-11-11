@@ -2,7 +2,7 @@ import {put} from '@vercel/blob';
 import {ownerAuthenticated} from '@/lib/owner-auth';
 export const runtime='nodejs';
 export async function POST(req:Request){
- if(!ownerAuthenticated(req))return Response.json({error:'Sign in required'},{status:401});
+ if(!(await ownerAuthenticated(req)))return Response.json({error:'Sign in required'},{status:401});
  if(!process.env.BLOB_READ_WRITE_TOKEN)return Response.json({error:'Image storage is not configured'},{status:503});
  try{
  const form=await req.formData(),file=form.get('file');
