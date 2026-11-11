@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     await migrate('salon-services',services as any[],r=>({
       name:r.name,category:r.category,description:r.description,price:r.price_cents/100,
       durationMinutes:r.duration_minutes,legacyImageUrl:r.image_url,active:r.active,
-      sortOrder:r.sort_order,preparation:r.preparation,aftercare:r.aftercare,
+      sortOrder:r.sort_order,legacyDetails:r.details,preparation:r.preparation,aftercare:r.aftercare,
     }))
     await migrate('salon-products',products as any[],r=>({
       name:r.name,category:r.category,description:r.description,price:r.price_cents/100,
