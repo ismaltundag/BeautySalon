@@ -18,7 +18,7 @@ export async function GET(){try{
    const mediaUrl=(x:any)=>typeof x==='object'&&x?.url?x.url:null;
    return Response.json({
     settings:{brand:settings.brand,headline:settings.headline,tagline:settings.tagline,
-     accent:'#394438',announcement:settings.announcement,about:(settings as any).legacyAbout||'',
+     accent:settings.accent||'#394438',announcement:settings.announcement,about:(settings as any).legacyAbout||'',
      membership_title:settings.membershipTitle,content:(settings as any).legacyContent||{},
      hero_image_url:mediaUrl(settings.heroImage)||(settings as any).legacyHeroImageUrl||null},
     services:services.docs.map((x:any)=>({id:x.legacyId||String(x.id),name:x.name,category:x.category,
